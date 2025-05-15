@@ -70,7 +70,8 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
 
   // controls
   const startNewGame = useCallback(() => {
-    setSeed(Date.now().toString())
+    const newSeed = window.crypto.randomUUID?.() || Math.random().toString(36).slice(2)
+    setSeed(newSeed)
     setFirstClick(null)
     setBoard([])
     setShareCode("")

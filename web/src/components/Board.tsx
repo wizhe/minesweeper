@@ -1,6 +1,6 @@
 // web/src/components/Board.tsx
 
-import React from "react"
+import React, { useRef } from "react"
 import { Board as BoardType } from "minesweeper-engine"
 
 interface BoardProps {
@@ -17,6 +17,8 @@ export default function Board({
   board, onCellClick, onCellContext,
   isGenerating, rows, cols, borderStyle
 }: BoardProps) {
+  const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const didHold   = useRef(false)
   const display = board.length
     ? board
     : Array.from({ length: rows }, () =>
@@ -43,8 +45,39 @@ export default function Board({
             key={`${r}-${c}`}
             className={`cell ${cell.revealed ? "revealed" : ""}`}
             style={{ userSelect: 'none' }}
-            onClick={e => { e.preventDefault(); onCellClick(r, c) }}
-            onContextMenu={e => { e.preventDefault(); onCellContext(r, c) }}
+            // START hold‐to‐flag handlers
+            onMouseDown={e => {
+            if (e.button !== 0) return      // only left click
+            didHold.current = false
+            holdTimer.current = setTimeout(() => {
+            onCellContext(r, c)            // toggle flag
+            didHold.current = true
+            }, 300)                        // 0.3s hold
+            }}
+            onMouseUp={e => {
+            if (e.button !== 0) return
+            // clear pending flag‐toggle if released early
+            if (holdTimer.current) {
+            clearTimeout(holdTimer.current)
+            holdTimer.current = null
+            }
+            // if you didn’t hold long enough, treat as a normal click
+            if (!didHold.current) {
+            onCellClick(r, c)
+            }
+            }}
+            onMouseLeave={() => {
+            // cancel if you drag off the cell
+            if (holdTimer.current) {
+            clearTimeout(holdTimer.current)
+            holdTimer.current = null
+            }
+            }}
+            onContextMenu={e => {
+            e.preventDefault()
+            onCellContext(r, c)
+            }}
+            // END hold‐to‐flag handlers
           >
             {cell.revealed
               ? (cell.isMine ? "💣" : cell.adjacent || "")

@@ -151,12 +151,12 @@ input {
 }
 
 .footer-bar > .share-code-box > input {
-  width: 60%;
+  width: 55%;
   font-size: inherit;
 }
 
 .footer-bar > .share-code-box > button {
-  width: 15%;
+  width: 20%;
   font-size: inherit;
 }
 

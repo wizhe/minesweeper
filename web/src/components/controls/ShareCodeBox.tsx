@@ -10,6 +10,7 @@ export default function ShareCodeBox({ shareCode }: ShareCodeBoxProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
+    if (shareCode)
     try {
       await navigator.clipboard.writeText(shareCode);
       setCopied(true);
