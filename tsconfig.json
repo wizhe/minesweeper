@@ -1,0 +1,16 @@
+// root/tsconfig.json
+
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2020",
+    "esModuleInterop": true,
+    "strict": true,
+    "jsx": "react",
+    "target": "es2022",
+    "baseUrl": ".",
+    "paths": {
+      "minesweeper-engine": ["./engine"]
+    }
+  }
+}

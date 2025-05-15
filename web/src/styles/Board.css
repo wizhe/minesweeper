@@ -1,0 +1,27 @@
+
+
+.board {
+  display: inline-grid;
+  margin: 8px;
+  padding: 2px;
+  grid-template-columns: repeat(16, 32px);
+  grid-template-rows:    repeat(16, 32px);
+  gap: 1px;
+}
+.cell {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--cell-border-color);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cell-hidden-color);
+  font-family: inherit;
+  font-weight: 800;
+}
+.cell.revealed {
+  background-color: var(--cell-revealed-color);
+  cursor: default;
+}
+
