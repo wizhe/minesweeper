@@ -11,6 +11,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src", "../engine/types.ts"]
+  "include": ["src", "../engine/types.ts", "src/types"]
 }
 

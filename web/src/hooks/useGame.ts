@@ -90,6 +90,10 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
   }, [])
 
   const setDifficulty = useCallback((diff: Difficulty) => {
+    window.gtag('event', 'select_content', {
+      content_type: 'difficulty',
+      item_id: diff,
+      });
     switch(diff) {
       case "easy":     setRows(9);  setCols(9);  setMines(10); break
       case "medium":   setRows(12); setCols(12); setMines(26); break
@@ -160,6 +164,9 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setGameStatus("playing")
     setTimer(t => t + 5)  
     setStarted(true)
+    window.gtag('event', 'undo_move', {
+      penalty_seconds: 5
+    });
   }
 
   return {

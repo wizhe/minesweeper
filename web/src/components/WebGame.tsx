@@ -9,7 +9,6 @@ import CodeLoader from "./controls/CodeLoader";
 import DailyButton  from "./controls/DailyButton";
 import ShareCodeBox from "./controls/ShareCodeBox";
 import StatusBar  from "./StatusBar"
-import WinLoseBanner  from "./WinLoseBanner"
 import UndoButton from "./controls/UndoButton";
 import "../styles/Board.css"
 import "../styles/WebGame.css"
