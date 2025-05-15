@@ -14,7 +14,7 @@ export default function DifficultyButtons({ setDifficulty }: DifficultyButtonsPr
       <button onClick={() => setDifficulty("easy")} style={{ background: "#dfd" }}> Easy </button>
       <button onClick={() => setDifficulty("medium")} style={{ background: "#ff0" }}> Medium </button>
       <button onClick={() => setDifficulty("hard")} style={{ background: "#ffb0b0" }}> Hard </button>
-      <button onClick={() => setDifficulty("extraHard")} style={{ background: "#f88" }}> X-Hard </button>
+      <button onClick={() => setDifficulty("extraHard")} style={{ background: "#f88" }}> xHard </button>
       <button onClick={() => setDifficulty("random")} style={{ background: "#f8f" }}> Random </button>
     </>
   );

@@ -120,14 +120,14 @@ input {
   font-weight: 750;
 }
 
-.win-lose-banner-container {
+.banner {
   font-size: 1rem;
   line-height: 1.2;
   height: 1.2em;
   overflow: hidden;
 }
 
-.win-lose-banner-container .playing {
+.banner .playing {
   visibility: hidden;
 }
 
@@ -190,4 +190,52 @@ input {
 
 .win-lose-banner-lost {
   color: #e22;
+}
+
+/* default (large screens): banner → timer → mines */
+.status-bar .banner { order: 1; }
+.status-bar .timer  { order: 2; }
+.status-bar .mines  { order: 3; }
+
+/* mobile (small screens): timer → mines → banner */
+@media (max-width: 600px) {
+  .status-bar .banner { order: 3; }
+  .status-bar .timer  { order: 1; }
+  .status-bar .mines  { order: 2; }
+}
+
+/* only on narrow screens (mobile): 
+  let the board container scroll horizontally and remove its centering so the left edge doesn't get cut off */
+@media (max-width: 600px) {
+  .game-board-wrapper {
+    width: 100%;                /* fill the viewport */
+    max-width: 100%;
+    box-sizing: border-box;     /* include padding in that width */
+    padding: 8px;               /* keep your existing padding if you want */
+    align-items: flex-start;    /* left-align the board */
+    overflow-x: auto;           /* allow horizontal scroll inside */
+    -webkit-overflow-scrolling: touch;
+  }
+  /* no shrinking board */
+  .game-board-wrapper .board {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .new-undo-bar {
+    justify-content: flex-start;
+  }
+
+  .link-bubbles {
+    gap: 8px;
+  }
+  .bubble {
+    width: 28px;
+    height: 28px;
+  }
+  .bubble svg,
+  .bubble img {
+    width: 26px;
+    height: 26px;
+  }
 }

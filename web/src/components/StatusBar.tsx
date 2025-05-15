@@ -13,10 +13,10 @@ export default function StatusBar({ displayTime, bombsLeft, gameStatus}: StatusB
   return (
     <div className="status-bar">
       <span className="timer">Time: {displayTime} </span>
-        <div className="win-lose-banner-container">
+        <div className="banner">
           <WinLoseBanner gameStatus={gameStatus} />
         </div>
-      <span className="bombs left">Bombs: {bombsLeft}</span>
+      <span className="mines">Mines: {bombsLeft}</span>
     </div>
   )
 }
