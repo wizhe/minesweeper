@@ -46,36 +46,36 @@ export default function Board({
             className={`cell ${cell.revealed ? "revealed" : ""}`}
             style={{ userSelect: 'none' }}
             // START hold‐to‐flag handlers
-            onMouseDown={e => {
-            if (e.button !== 0) return      // only left click
+            onPointerDown={e => {
+            if (e.pointerType === 'mouse' && e.button !== 0) return
             didHold.current = false
             holdTimer.current = setTimeout(() => {
-            onCellContext(r, c)            // toggle flag
-            didHold.current = true
-            }, 150)                        // 0.15s hold
+              onCellContext(r, c)            // toggle flag
+              didHold.current = true
+              }, 150)                        // 0.15s hold
             }}
-            onMouseUp={e => {
-            if (e.button !== 0) return
+            onPointerUp={e => {
+            if (e.pointerType === 'mouse' && e.button !== 0) return
             // clear pending flag‐toggle if released early
             if (holdTimer.current) {
-            clearTimeout(holdTimer.current)
-            holdTimer.current = null
+              clearTimeout(holdTimer.current)
+              holdTimer.current = null
             }
             // if you didn’t hold long enough, treat as a normal click
             if (!didHold.current) {
-            onCellClick(r, c)
+              onCellClick(r, c)
             }
             }}
-            onMouseLeave={() => {
+            onPointerLeave={() => {
             // cancel if you drag off the cell
             if (holdTimer.current) {
-            clearTimeout(holdTimer.current)
-            holdTimer.current = null
+              clearTimeout(holdTimer.current)
+              holdTimer.current = null
             }
             }}
             onContextMenu={e => {
-            e.preventDefault()
-            onCellContext(r, c)
+              e.preventDefault()
+              onCellContext(r, c)
             }}
             // END hold‐to‐flag handlers
           >
