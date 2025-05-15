@@ -24,7 +24,7 @@ export default function LinkBubbles() {
 
       {/* github bubble */}
       <a
-        href="https://github.com/"
+        href="https://github.com/wizhe/minesweeper"
         target="_blank"
         rel="noopener noreferrer"
         className="bubble"
