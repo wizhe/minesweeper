@@ -1,6 +1,6 @@
 # Minesweeper
 
-A modern, responsive Minesweeper implementation built with React and TypeScript. Features a difficulty selector, share/load codes, undo with penalty, timer, status bar, and floating help/GitHub links. 
+A modern, responsive Minesweeper implementation built with React. Features a difficulty selector, share codes, undo, timer, mine counter, and help/GitHub links. <br />
 **Share codes** with friends to play the same puzzles as them to see who's the best!
 
 ## Try it out [here!](https://wizhe.github.io/minesweeper/)
