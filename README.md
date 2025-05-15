@@ -1,6 +1,6 @@
 # Minesweeper
 
-A modern, responsive Minesweeper implementation built with React. Features a difficulty selector, share codes, undo, timer, mine counter, and help/GitHub links. <br />
+Minesweeper built with React. Features a difficulty selector, share codes, undo, timer, mine counter, and help/GitHub links. <br />
 **Share codes** with friends to play the same puzzles as them to see who's the best!
 
 ## Try it out [here!](https://wizhe.github.io/minesweeper/)
@@ -11,8 +11,8 @@ A modern, responsive Minesweeper implementation built with React. Features a dif
 ## Table of Contents
 
 * [Features](#features)
-* [Getting Started](#getting-started)
 * [Usage](#usage)
+* [Getting Started](#getting-started)
 * [License](#license)
 
 ---
@@ -26,6 +26,19 @@ A modern, responsive Minesweeper implementation built with React. Features a dif
 * **Timer & Bomb Counter** (Status Bar)
 * **Win/Lose Banner** displays upon game end
 * **Floating Help & GitHub Links** always visible
+
+---
+
+
+## Usage
+
+1. **Select Difficulty**: click to change difficulty or randomize.
+2. **Play**: click cells to reveal, right-click to flag.
+3. **Undo**: revert mine reveal (adds 5s to the timer).
+4. **Share**: copy code from the share box.
+5. **Load**: paste a code and click "Load" to play.
+6. **New Game**: click to generate a new game with the same dimensions and mine count.
+
 
 ---
 
@@ -72,18 +85,6 @@ You can visit the deployed verion at [**https://wizhe.github.io/minesweeper/**](
 
 ---
 
-
-## Usage
-
-1. **Select Difficulty**: click to change difficulty or randomize.
-2. **Play**: click cells to reveal, right-click to flag.
-3. **Undo**: revert mine reveal (adds 5s to the timer).
-4. **Share**: copy code from the share box.
-5. **Load**: paste a code and click "Load" to play.
-6. **New Game**: click to generate a new game with the same dimensions and mine count.
-
-
----
 
 ## License
 
