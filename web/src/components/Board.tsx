@@ -52,7 +52,7 @@ export default function Board({
             holdTimer.current = setTimeout(() => {
             onCellContext(r, c)            // toggle flag
             didHold.current = true
-            }, 300)                        // 0.3s hold
+            }, 150)                        // 0.15s hold
             }}
             onMouseUp={e => {
             if (e.button !== 0) return
