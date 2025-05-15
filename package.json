@@ -14,5 +14,8 @@
     "@types/seedrandom": "^3.0.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "scripts": {
+  "deploy:web": "cd web && npm run deploy"
   }
 }

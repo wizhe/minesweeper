@@ -4,6 +4,7 @@ import React from "react";
 import "../styles/LinkBubbles.css";
 
 export default function LinkBubbles() {
+  const base = process.env.PUBLIC_URL;
   return (
     <div className="link-bubbles">
       {/* guide bubble */}
@@ -15,7 +16,7 @@ export default function LinkBubbles() {
         title="How to Play Minesweeper"
       >
         <img
-          src="/images/circle-question-solid.svg"
+          src={`${base}/images/circle-question-solid.svg`}
           alt="Help icon"
           width={32}
           height={32}
@@ -31,7 +32,7 @@ export default function LinkBubbles() {
         title="Source Code on GitHub"
       >
         <img
-          src="/images/github-brands.svg"
+          src={`${base}/images/github-brands.svg`}
           alt="Help icon"
           width={32}
           height={32}
