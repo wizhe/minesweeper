@@ -26,7 +26,7 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
   const [rows, setRows]     = useState(initRows)
   const [cols, setCols]     = useState(initCols)
   const [mines, setMines]   = useState(initMines)
-  const [seed, setSeed]     = useState("")
+  const [seed, setSeed]     = useState<string>(() => { return window.crypto?.randomUUID?.() || Math.random().toString(36).slice(2); });
   const [firstClick, setFirstClick] = useState<Coord|null>(null)
   const [board, setBoard]   = useState<Board>([])
   const [shareCode, setShareCode] = useState("")
