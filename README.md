@@ -44,7 +44,7 @@ A modern, responsive Minesweeper implementation built with React and TypeScript.
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/yourusername/minesweeper.git
+   git clone https://github.com/wizhe/minesweeper.git
    cd minesweepeer
    ```
 2. Install dependencies
