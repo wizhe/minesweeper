@@ -38,7 +38,9 @@ jobs:
             (git commit -m "chore: update daily puzzle [skip ci]" && git push)
 
       - name: Deploy to GitHub Pages
+        env:
+          CI: false
         run: |
           cd web
-          CI=false npm run build
+          npm run build
           npm run deploy
