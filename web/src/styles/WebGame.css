@@ -103,15 +103,18 @@ input {
   border-bottom:#ccc solid 1px;
 }
 .loader-bar {
-  gap: 64px;
+  gap: 24px;
   border-bottom:#ccc solid 1px;
 }
-.loader-bar input {
+.load-input-box {
   background-color: var(--sub-background-color);
   user-select: text;
 }
-.loader-bar button {
+.load-button {
   background-color: var(--sub-background-color);
+}
+.daily-button {
+  background-color: #ffe2ef;
 }
 
 .status-bar {

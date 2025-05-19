@@ -11,12 +11,13 @@ interface CodeLoaderProps {
 export default function CodeLoader({ importCode, setImportCode, loadGame }: CodeLoaderProps) {
   return (
     <div>
-      <button onClick={() => loadGame(importCode)}>Load</button>
+      <button className="load-button" onClick={() => loadGame(importCode)}>Load</button>
       <input
         type="text"
         placeholder="Paste Share Code Here"
         value={importCode}
         onChange={e => setImportCode(e.target.value)}
+        className="load-input-box"
       />
     </div>
   );

@@ -58,7 +58,7 @@ export default function WebGame() {
           />
         </div>
 
-        {/* status + board + share + undo */}
+        {/* status & board + share & undo */}
         <div className="game-board-wrapper" onContextMenu={e => { e.preventDefault(); }}>
           <StatusBar displayTime={displayTime} bombsLeft={bombsLeft}  gameStatus={gameStatus} />
           <Board
