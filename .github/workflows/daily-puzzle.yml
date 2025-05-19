@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd web
-          npm ci
+          node scripts/generateDaily.mjs
 
       - name: Generate puzzle
         run: |

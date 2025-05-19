@@ -1,4 +1,4 @@
-// web/scripts/generateDaily.js
+// web/scripts/generateDaily.mjs
 
 import fs   from 'fs';
 import path from 'path';
