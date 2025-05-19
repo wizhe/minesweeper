@@ -223,7 +223,7 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setBoard(undoBoard)
     setUndoBoard(null)
     setGameStatus("playing")
-    setTimer(t => t + 5)  
+    setTimer(t => t + 10)  
     setLosses(losses + 1)
     console.log('Losses + 1')
     setStarted(true)
