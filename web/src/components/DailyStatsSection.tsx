@@ -4,7 +4,8 @@ export default function DailyStatSection() {
   const summaryUrl = `${process.env.REACT_APP_STATS_API}`;
   const { summary, error } = useDailySummary(summaryUrl);
   function FromatDisplayTime(seconds: number) {
-  const m = Math.floor(seconds/60), s = seconds%60
+  const secs = Math.round(seconds);
+  const m = Math.floor(secs/60), s = secs%60
   const displayTime = `${m}:${s.toString().padStart(2,"0")}`
   return displayTime
   }
