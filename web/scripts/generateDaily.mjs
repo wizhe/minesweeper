@@ -3,10 +3,9 @@
 import fs   from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import {
-  generateSolvableBoardConstructive,
-  makeShareCode
-} from 'minesweeper-engine';
+
+import pkg from 'minesweeper-engine';
+const { generateSolvableBoardConstructive, makeShareCode } = pkg;
 
 const FILE = path.resolve(__dirname, '../public/daily-puzzles.json');
 const MAX_ENTRIES = 30;
