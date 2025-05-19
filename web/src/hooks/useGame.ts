@@ -1,4 +1,4 @@
-// web/src/hooks/useGame.tsx
+// web/src/hooks/useGame.ts
 
 import { useState, useEffect, useCallback } from "react"
 import {
@@ -33,6 +33,8 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
   const [gameStatus, setGameStatus] = useState<"playing"|"won"|"lost">("playing")
   const [undoBoard, setUndoBoard]   = useState<Board|null>(null)
   const [isGenerating, setIsGenerating] = useState(false)
+  const [isDailyMode, setIsDailyMode] = useState(false);
+  const [losses, setLosses] = useState(0)
 
   // timer & flags
   const [timer, setTimer] = useState(0)
@@ -79,6 +81,8 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setUndoBoard(null)
     setTimer(0)
     setStarted(false)
+    setIsDailyMode(false)
+    setLosses(0)
   }, [])
 
   const loadGame = useCallback((code: string) => {
@@ -88,21 +92,59 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setShareCode(code);
     setTimer(0);
     setStarted(true);
+    setLosses(0)
   }, [])
 
   const loadDaily = useCallback(async () => {
     try {
       const url = `${process.env.PUBLIC_URL || ''}/daily-puzzles.json`;
+      console.log('[Daily] fetching URL:', url);
       const resp = await fetch(url);
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
       const list = await resp.json()
       if (list.length === 0) throw new Error("No daily puzzles found");
       const today = list[list.length - 1];
+      setIsDailyMode(true);
       loadGame(today.code);
     } catch (err) {
       console.error("Failed to load daily puzzle:", err);
     }
   }, [loadGame]);
+
+    function reportDailyStats(stats: {
+    date: string;
+    userId?: string;
+    timeSec: number;
+    perfectClear: boolean;
+    noFlagClear: boolean;
+  }) {
+    console.log('[Stats] payload:', stats);
+    fetch(`${process.env.REACT_APP_STATS_API}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain'
+      },
+      body: JSON.stringify(stats)
+    })
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.json();
+    })
+    .then(resp => console.log("Stats reported:", resp))
+    .catch(err => console.error("Failed to report stats:", err));
+  }
+
+  useEffect(() => {
+    if (isDailyMode && gameStatus === "won") {
+      reportDailyStats({
+        date: new Date().toISOString().slice(0, 10),
+        timeSec: timer,
+        userId:   undefined,
+        perfectClear: losses === 0,
+        noFlagClear: flagsPlaced === 0
+      });
+    }
+  }, [gameStatus]);
 
   const setDifficulty = useCallback((diff: Difficulty) => {
     window.gtag('event', 'select_content', {
@@ -178,6 +220,8 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setUndoBoard(null)
     setGameStatus("playing")
     setTimer(t => t + 5)  
+    setLosses(losses + 1)
+    console.log('Losses + 1')
     setStarted(true)
     window.gtag('event', 'undo_move', {
       penalty_seconds: 5
@@ -189,6 +233,6 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     gameStatus, undoAvailable: !!undoBoard,
     isGenerating, timer, bombsLeft,
     startNewGame, loadGame, setDifficulty, loadDaily,
-    onCellClick, onCellContext, onUndo
+    onCellClick, onCellContext, onUndo, isDailyMode
   }
 }

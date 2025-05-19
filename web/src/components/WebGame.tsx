@@ -14,6 +14,7 @@ import "../styles/Board.css"
 import "../styles/WebGame.css"
 import "../styles/LinkBubbles.css";
 import LinkBubbles from "./LinkBubbles";
+import DailyStatSection from "./DailyStatsSection";
 
 export default function WebGame() {
   const {
@@ -21,7 +22,7 @@ export default function WebGame() {
     gameStatus, undoAvailable,
     isGenerating, timer, bombsLeft,
     startNewGame, loadGame, setDifficulty, loadDaily,
-    onCellClick, onCellContext, onUndo
+    onCellClick, onCellContext, onUndo, isDailyMode
   } = useGame({ initRows: 9, initCols: 9, initMines: 10 })
 
   const [importCode, setImportCode] = useState<string>("");
@@ -77,6 +78,8 @@ export default function WebGame() {
             <ShareCodeBox shareCode={shareCode} />
           </footer>
         </div>
+
+        {isDailyMode  && <DailyStatSection />}
       </div>
       <LinkBubbles />
     </div>

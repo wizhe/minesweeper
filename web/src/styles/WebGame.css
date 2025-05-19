@@ -250,3 +250,16 @@ input {
     height: 26px;
   }
 }
+
+.daily-stats {
+  margin:16px;
+  border: 2px solid #ccc;
+  padding:8px;
+  background-color: var(--sub-background-color);
+  border-collapse: separate;
+  border-spacing: 16px 8px;
+  text-align: center;
+}
+.daily-stats th, .daily-stats td {
+  padding: 0px 16px;
+}
