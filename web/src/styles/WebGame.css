@@ -27,6 +27,7 @@ html, body, #root{
   font-family: 'Libre Franklin', sans-serif;
   font-weight: 500;
   color: #555;
+  user-select: none;
 }
 
 button, input, select, textarea, label {
@@ -107,6 +108,7 @@ input {
 }
 .loader-bar input {
   background-color: var(--sub-background-color);
+  user-select: text;
 }
 .loader-bar button {
   background-color: var(--sub-background-color);
@@ -120,9 +122,12 @@ input {
   justify-content: space-between;
   font-family: inherit;
   font-weight: 750;
+  background-color: var(--sub-background-color);
 }
 
 .banner {
+  flex: 0 0 8rem;
+  text-align: center;
   font-size: 1rem;
   line-height: 1.2;
   height: 1.2em;
@@ -156,6 +161,7 @@ input {
 .footer-bar > .share-code-box > input {
   width: 55%;
   font-size: inherit;
+  user-select: text;
 }
 
 .footer-bar > .share-code-box > button {
@@ -196,9 +202,9 @@ input {
   color: #e22;
 }
 
-/* default (large screens): banner → timer → mines */
-.status-bar .banner { order: 1; }
-.status-bar .timer  { order: 2; }
+/* default (large screens):  timer → banner → mines */
+.status-bar .timer  { order: 1; }
+.status-bar .banner { order: 2; }
 .status-bar .mines  { order: 3; }
 
 /* mobile (small screens): timer → mines → banner */
@@ -208,16 +214,17 @@ input {
   .status-bar .mines  { order: 2; }
 }
 
-/* only on narrow screens (mobile): 
-  let the board container scroll horizontally and remove its centering so the left edge doesn't get cut off */
+/* mobile (small screens): 
+  let board container scroll horizontally and 
+  remove centering so left edge doesn't get cut off */
 @media (max-width: 600px) {
   .game-board-wrapper {
-    width: 100%;                /* fill the viewport */
+    width: 100%;
     max-width: 100%;
-    box-sizing: border-box;     /* include padding in that width */
-    padding: 8px;               /* keep your existing padding if you want */
-    align-items: flex-start;    /* left-align the board */
-    overflow-x: auto;           /* allow horizontal scroll inside */
+    box-sizing: border-box;
+    padding: 8px;
+    align-items: flex-start;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
   /* no shrinking board */

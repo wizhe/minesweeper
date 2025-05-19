@@ -1,4 +1,4 @@
-// web/src/components/Banner.tsx
+// web/src/components/WinLoseBanner.tsx
 
 import React from "react";
 

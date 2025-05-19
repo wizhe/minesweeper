@@ -49,7 +49,7 @@ export default function WebGame() {
 
         {/* daily + code loader */}
         <div className="bar loader-bar">
-          {/* <DailyButton loadGame={loadGame} /> */}
+          {/* <DailyButton loadGame={loadGame} /> // not implemented yet */}
           <CodeLoader
             importCode={importCode}
             setImportCode={setImportCode}
