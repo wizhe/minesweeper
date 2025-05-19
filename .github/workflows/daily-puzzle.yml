@@ -37,11 +37,15 @@ jobs:
           git diff --cached --quiet || \
             (git commit -m "chore: update daily puzzle [skip ci]" && git push)
 
-      - name: Deploy to GitHub Pages
+      - name: Build front-end
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CI: false
         run: |
           cd web
           npm run build
-          npm run deploy
+
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web/build
