@@ -35,6 +35,7 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
   const [isGenerating, setIsGenerating] = useState(false)
   const [isDailyMode, setIsDailyMode] = useState(false);
   const [losses, setLosses] = useState(0)
+  const [hasFlagged, setHasFlagged] = useState(false)
 
   // timer & flags
   const [timer, setTimer] = useState(0)
@@ -83,6 +84,7 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setStarted(false)
     setIsDailyMode(false)
     setLosses(0)
+    setHasFlagged(false)
   }, [])
 
   const loadGame = useCallback((code: string) => {
@@ -93,6 +95,7 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setTimer(0);
     setStarted(true);
     setLosses(0)
+    setHasFlagged(false)
   }, [])
 
   const loadDaily = useCallback(async () => {
@@ -141,7 +144,7 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
         timeSec: timer,
         userId:   undefined,
         perfectClear: losses === 0,
-        noFlagClear: flagsPlaced === 0
+        noFlagClear: !hasFlagged
       });
     }
   }, [gameStatus]);
@@ -211,6 +214,7 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     if (!firstClick || isGenerating || gameStatus!=="playing") return
     const copy = board.map(row=>row.map(cell=>({ ...cell })))
     toggleFlag(copy, r, c)
+    setHasFlagged(true)
     setBoard(copy)
   }
 

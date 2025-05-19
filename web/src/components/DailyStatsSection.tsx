@@ -25,8 +25,8 @@ export default function DailyStatSection() {
           <tr key={row.date}>
             <td>{row.date.slice(0, 10)}</td>
             <td>{FromatDisplayTime(row["avg time"])}</td>
-            <td>{(row["% perfect"] * 100).toFixed(1)}%</td>
-            <td>{(row["% no-flag"] * 100).toFixed(1)}%</td>
+            <td>{(row["% perfect"] * 100).toFixed(0)}%</td>
+            <td>{(row["% no-flag"] * 100).toFixed(0)}%</td>
           </tr>
         ))}
       </tbody>
