@@ -90,6 +90,20 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
     setStarted(true);
   }, [])
 
+  const loadDaily = useCallback(async () => {
+    try {
+      const url = `${process.env.PUBLIC_URL || ''}/daily-puzzles.json`;
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const list = await resp.json()
+      if (list.length === 0) throw new Error("No daily puzzles found");
+      const today = list[list.length - 1];
+      loadGame(today.code);
+    } catch (err) {
+      console.error("Failed to load daily puzzle:", err);
+    }
+  }, [loadGame]);
+
   const setDifficulty = useCallback((diff: Difficulty) => {
     window.gtag('event', 'select_content', {
       content_type: 'difficulty',
@@ -171,12 +185,10 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
   }
 
   return {
-    // state
     rows, cols, mines, board, shareCode,
     gameStatus, undoAvailable: !!undoBoard,
     isGenerating, timer, bombsLeft,
-    // actions
-    startNewGame, loadGame, setDifficulty,
+    startNewGame, loadGame, setDifficulty, loadDaily,
     onCellClick, onCellContext, onUndo
   }
 }

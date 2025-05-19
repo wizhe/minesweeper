@@ -20,7 +20,7 @@ export default function WebGame() {
     rows, cols, board, shareCode,
     gameStatus, undoAvailable,
     isGenerating, timer, bombsLeft,
-    startNewGame, loadGame, setDifficulty,
+    startNewGame, loadGame, setDifficulty, loadDaily,
     onCellClick, onCellContext, onUndo
   } = useGame({ initRows: 9, initCols: 9, initMines: 10 })
 
@@ -49,7 +49,7 @@ export default function WebGame() {
 
         {/* daily + code loader */}
         <div className="bar loader-bar">
-          {/* <DailyButton loadGame={loadGame} /> // not implemented yet */}
+          <DailyButton loadDaily={loadDaily}/>
           <CodeLoader
             importCode={importCode}
             setImportCode={setImportCode}
