@@ -40,5 +40,5 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           cd web
-          npm run build
+          CI=false npm run build
           npm run deploy
