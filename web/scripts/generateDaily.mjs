@@ -7,6 +7,11 @@ import crypto from 'crypto';
 import pkg from 'minesweeper-engine';
 const { generateSolvableBoardConstructive, makeShareCode } = pkg;
 
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname  = path.dirname(__filename);
+
 const FILE = path.resolve(__dirname, '../public/daily-puzzles.json');
 const MAX_ENTRIES = 30;
 
