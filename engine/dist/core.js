@@ -1,6 +1,11 @@
+"use strict";
 // engine/core.ts
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.revealCell = revealCell;
+exports.toggleFlag = toggleFlag;
+exports.chord = chord;
 // reveal a cell and flood‐fill
-export function revealCell(board, r, c) {
+function revealCell(board, r, c) {
     const cell = board[r][c];
     if (cell.revealed || cell.flagged)
         return;
@@ -18,13 +23,13 @@ export function revealCell(board, r, c) {
     }
 }
 // toggle flag
-export function toggleFlag(board, r, c) {
+function toggleFlag(board, r, c) {
     const cell = board[r][c];
     if (!cell.revealed)
         cell.flagged = !cell.flagged;
 }
 // chord (auto‐clear) around a revealed number
-export function chord(board, r, c) {
+function chord(board, r, c) {
     const cell = board[r][c];
     if (!cell.revealed)
         return;

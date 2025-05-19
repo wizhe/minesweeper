@@ -1,6 +1,12 @@
+"use strict";
 // engine/generator.ts
-import seedrandom from "seedrandom";
-import { isFullySolvable } from "./solver";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateSolvableBoardConstructive = generateSolvableBoardConstructive;
+const seedrandom_1 = __importDefault(require("seedrandom"));
+const solver_1 = require("./solver");
 // neighbor offsets
 const OFFSETS = [
     [-1, -1], [-1, 0], [-1, 1],
@@ -24,7 +30,7 @@ function bumpAdjacent(board, r, c, delta) {
 }
 // place `mines` one‐by‐one (skipping safe zone),
 // keeping each placement only if `isFullySolvable` still holds.
-export function generateSolvableBoardConstructive(rows, cols, mines, seed, firstClick) {
+function generateSolvableBoardConstructive(rows, cols, mines, seed, firstClick) {
     const board = makeEmptyBoard(rows, cols);
     // safe zone
     const safe = new Set();
@@ -44,7 +50,7 @@ export function generateSolvableBoardConstructive(rows, cols, mines, seed, first
         }
     }
     // shuffle with seed
-    const rng = seedrandom(seed);
+    const rng = (0, seedrandom_1.default)(seed);
     for (let i = pool.length - 1; i > 0; i--) {
         const j = Math.floor(rng() * (i + 1));
         [pool[i], pool[j]] = [pool[j], pool[i]];
@@ -57,7 +63,7 @@ export function generateSolvableBoardConstructive(rows, cols, mines, seed, first
         // try
         board[r][c].isMine = true;
         bumpAdjacent(board, r, c, +1);
-        if (isFullySolvable(board, firstClick)) {
+        if ((0, solver_1.isFullySolvable)(board, firstClick)) {
             placed++;
         }
         else {

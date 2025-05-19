@@ -1,5 +1,8 @@
+"use strict";
 // engine/solver.ts
-import { revealCell } from "./core";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isFullySolvable = isFullySolvable;
+const core_1 = require("./core");
 // apply logical rules until stuck; return true if any change happened
 function solveOnce(board) {
     let changed = false;
@@ -38,11 +41,11 @@ function solveOnce(board) {
     return changed;
 }
 // returns true if the board can be fully solved logically
-export function isFullySolvable(initialBoard, firstClick) {
+function isFullySolvable(initialBoard, firstClick) {
     // deep clone
     const board = initialBoard.map(row => row.map(c => ({ ...c })));
     // reveal first click
-    revealCell(board, firstClick.r, firstClick.c);
+    (0, core_1.revealCell)(board, firstClick.r, firstClick.c);
     // iterate logic until no more progress
     while (solveOnce(board)) { /* repeat */ }
     // if any safe cell remains hidden, it's unsolvable
