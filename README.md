@@ -4,40 +4,41 @@ Minesweeper built with React. Features a difficulty selector, share codes, undo,
 **Share codes** with friends to play the same puzzles as them to see who's the best!
 
 ## Try it out [here!](https://wizhe.github.io/minesweeper/)
-> ![image](https://github.com/user-attachments/assets/aa0322e7-605d-41f2-9996-93eb396bc952)
+![image](https://github.com/user-attachments/assets/81403214-4d83-4f80-ae84-4523a881099c)
+
 
 ---
 
 ## Table of Contents
 
-* [Features](#features)
 * [Usage](#usage)
+* [Features](#features)
 * [Getting Started](#getting-started)
-* [License](#license)
-
----
-
-## Features
-
-* **Difficulty Selector** (Easy, Medium, Hard, Extra Hard)
-* **Random New Game** button
-* **Share/Load Code**: generate and paste codes to reproduce games
-* **Undo Move** with configurable penalty (by default adds 5s to timer)
-* **Timer & Bomb Counter** (Status Bar)
-* **Win/Lose Banner** displays upon game end
-* **Floating Help & GitHub Links** always visible
 
 ---
 
 
 ## Usage
 
-1. **Select Difficulty**: click to change difficulty or randomize.
-2. **Play**: click cells to reveal, right-click to flag.
-3. **Undo**: revert mine reveal (adds 5s to the timer).
-4. **Share**: copy code from the share box.
-5. **Load**: paste a code and click "Load" to play.
-6. **New Game**: click to generate a new game with the same dimensions and mine count.
+1. **Select Difficulty**: click to change difficulty, randomize, or try out the Daily Challenge!
+2. **Play**: left-click/tap a cell to reveal it, right-click/hold a cell to flag it
+3. **Undo**: don't worry, if you reveal a mine, you can undo it! (Adds 10 seconds to the timer though)
+4. **Share**: copy a share code from the share box to challenge your friends!
+5. **Load**: paste a share code and click "Load" to play the same puzzle!
+6. **New Game**: click to generate a new game (with the same dimensions and mine count)
+
+
+---
+
+## Features
+
+* **Difficulty Selector** (Easy, Medium, Hard, Extra Hard)
+* **Random** game button
+* **Daily** Challenge with statistics (number of clears, average clear time, perfect clear percentage, no-flag clear percentage)
+* **Share/Load Code**: generate and paste codes to reproduce games
+* **Undo Move** with penalty (adds 10 seconds to timer)
+* **Timer, Win/Lose Banner, & Bomb Counter**
+* **Floating Help & GitHub Links** always visible
 
 
 ---
