@@ -13,6 +13,7 @@ Minesweeper built with React. Features a difficulty selector, share codes, undo,
 
 * [Usage](#usage)
 * [Features](#features)
+* [Add to Home Screen (IOS)](#add-to-home-screen-ios)
 * [Getting Started](#getting-started)
 
 ---
@@ -39,6 +40,23 @@ Minesweeper built with React. Features a difficulty selector, share codes, undo,
 * **Undo Move** with penalty (adds 10 seconds to timer)
 * **Timer, Win/Lose Banner, & Bomb Counter**
 * **Floating Help & GitHub Links** always visible
+
+
+---
+
+## Add to Home Screen (IOS)
+To add to home screen as an app:
+1. In Safari, go to [**https://wizhe.github.io/minesweeper/**](https://wizhe.github.io/minesweeper/)
+2. Tap on the Share icon
+  > <img src="https://github.com/user-attachments/assets/4687a594-6652-42ad-bdd1-490458e77fe1" width="293px" height="98px">
+3. Tap on **Add to Home Screen**
+  > <img src="https://github.com/user-attachments/assets/be1ec5af-e862-4734-8b49-75fc36a50abf" width="293px" height="194px">
+
+Now on you home screen, you'll have a new app, 'Minesweeper'! 
+> <img src="https://github.com/user-attachments/assets/b5620c0d-5c04-45b7-a37f-966ce94100a2" width="293px" height="597px">
+> <img src="https://github.com/user-attachments/assets/bc68a308-f8aa-4cff-b07c-56279a5a1c74" width="293px" height="597px">
+
+
 
 
 ---
