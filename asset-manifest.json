@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/minesweeper/static/css/main.925d19c2.css",
-    "main.js": "/minesweeper/static/js/main.bf0acc14.js",
+    "main.js": "/minesweeper/static/js/main.fff674aa.js",
     "index.html": "/minesweeper/index.html",
     "main.925d19c2.css.map": "/minesweeper/static/css/main.925d19c2.css.map",
-    "main.bf0acc14.js.map": "/minesweeper/static/js/main.bf0acc14.js.map"
+    "main.fff674aa.js.map": "/minesweeper/static/js/main.fff674aa.js.map"
   },
   "entrypoints": [
     "static/css/main.925d19c2.css",
-    "static/js/main.bf0acc14.js"
+    "static/js/main.fff674aa.js"
   ]
 }
