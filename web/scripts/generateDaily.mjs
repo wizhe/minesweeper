@@ -28,10 +28,10 @@ const randInt = (min, max) =>
 // keep trying until we get a code not in the last 30
 let entry;
 do {
-  const rows = randInt(12, 22);    // 12 + [0..10]
-  const cols = randInt(12, 22);
+  const rows = randInt(12, 18);    // 12 + [0..6]
+  const cols = randInt(12, 18);
   const mines = Math.floor(
-    rows*cols*(0.2 + Math.random()*0.2)
+    rows*cols*(0.15 + Math.random()*0.5)
   );
   const seed = crypto.randomUUID();
   const firstClick = {
