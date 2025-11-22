@@ -1,9 +1,5 @@
 [
   {
-    "date": "2025-10-23",
-    "code": "MTgsMTQsMTQ1LGVlYjcxMzc2LTFiZTgtNGJkNS04MTkxLWRhZjUxMzY3Y2NmZiwyLDE="
-  },
-  {
     "date": "2025-10-24",
     "code": "MTIsMTMsMzQsMjc3MjI2Y2ItZmQ2NC00ODI4LWJjMjQtNWJmMjRiM2NjZDY2LDQsMTI="
   },
@@ -118,5 +114,9 @@
   {
     "date": "2025-11-21",
     "code": "MTMsMTIsNTgsNGEzY2Y5ZjYtYzg1OC00OWI1LWIzMDktYzhkNTcxMTQ3MGQ4LDYsMg=="
+  },
+  {
+    "date": "2025-11-22",
+    "code": "MTUsMTUsMTA5LGQxNWIzODY3LTVkMzctNGE0My05ZDhmLTRlNGZhOWUzMGEwMiw3LDk="
   }
 ]
