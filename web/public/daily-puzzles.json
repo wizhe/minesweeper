@@ -1,9 +1,5 @@
 [
   {
-    "date": "2026-05-01",
-    "code": "MTMsMTIsMjQsNDY3NjM5MjAtZGI4Yi00MTU0LWJlN2MtM2Y0ZmMzZTY3YmY5LDQsMg=="
-  },
-  {
     "date": "2026-05-02",
     "code": "MTIsMTcsNjMsYWU0N2ZmMWQtYjcxZi00ZWI3LWI4NTUtNjg0YzhjZGY0YjdmLDAsNA=="
   },
@@ -118,5 +114,9 @@
   {
     "date": "2026-05-31",
     "code": "MTUsMTQsNDgsNzM1NjA2ZTAtY2MzZi00YzE0LWI0MTktYzdlYTg0NGJkZjUxLDgsNQ=="
+  },
+  {
+    "date": "2026-06-01",
+    "code": "MTIsMTQsMTAyLGE4NTkxYmRlLWQwMDAtNDU1ZC04NDk2LTYzOWNjOTg1NWY5MywxMCwz"
   }
 ]
