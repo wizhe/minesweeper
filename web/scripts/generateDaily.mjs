@@ -31,7 +31,7 @@ do {
   const rows = randInt(12, 18);    // 12 + [0..6]
   const cols = randInt(12, 18);
   const mines = Math.floor(
-    rows*cols*(0.15 + Math.random()*0.5)
+    rows*cols*(0.12 + Math.random()*0.10)
   );
   const seed = crypto.randomUUID();
   const firstClick = {
@@ -42,9 +42,10 @@ do {
   const b = generateSolvableBoardConstructive(
     rows, cols, mines, seed, firstClick
   );
+  const actualMines = b.flat().filter(c => c.isMine).length
   // reveal first click
   const code = makeShareCode(
-    rows, cols, mines, seed, firstClick
+    rows, cols, actualMines, seed, firstClick
   );
   if (!list.some(e => e.code === code)) {
     entry = { date: new Date().toISOString().slice(0,10), code };
