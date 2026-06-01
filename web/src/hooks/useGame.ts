@@ -41,7 +41,8 @@ export function useGame({ initRows, initCols, initMines }: UseGameParams) {
   const [timer, setTimer] = useState(0)
   const [started, setStarted] = useState(false)
   const flagsPlaced = board.flat().filter(c => c.flagged).length
-  const bombsLeft   = mines - flagsPlaced
+  const minesOnBoard = board.length ? board.flat().filter(c => c.isMine).length : mines
+  const bombsLeft   = minesOnBoard - flagsPlaced
 
   // timer effect
   useEffect(() => {
