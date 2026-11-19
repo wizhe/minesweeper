@@ -1,9 +1,5 @@
 [
   {
-    "date": "2026-10-20",
-    "code": "MTQsMTYsNDYsMWVmYzg0ZmUtOWViYy00MzRkLTg1MzctMWJkZGM0N2Q2YjdlLDYsOQ=="
-  },
-  {
     "date": "2026-10-21",
     "code": "MTcsMTcsMzgsZTNmZjBlZWItYzgzMi00NDZlLWExZTgtMTM3YzU3NmIwMjk0LDE2LDEw"
   },
@@ -118,5 +114,9 @@
   {
     "date": "2026-11-18",
     "code": "MTgsMTIsMzUsZWVmZmExOGYtZmYxZC00N2NjLWJmOTEtYTI4NTg5YTRhMjc1LDQsNA=="
+  },
+  {
+    "date": "2026-11-19",
+    "code": "MTYsMTMsMzcsZTI5NDllNjgtMjgxNi00ZWIyLWFlMzAtMzA5NjY0Y2VlODhjLDEyLDc="
   }
 ]
